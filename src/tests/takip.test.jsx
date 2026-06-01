@@ -127,6 +127,9 @@ test('3.2 Yeni görev eklendiğinde "Yeni görev oluşturuldu." toast mesajı g�
   await user.click(kaydetButton);
 
   await screen.findByText("Yeni görev oluşturuldu.");
+  // Görev gerçekten "Yapılacaklar" sütununda render oluyor mu?
+  // (submitFn'e id + status doğru eklenmemişse task ekrana basılmaz)
+  expect(await screen.findByText("Test görevi")).toBeInTheDocument();
 });
 
 test('3.3 Tamamlandı butonuna tıklayınca "... id\'li görev tamamlandı." toast mesajı gösteriliyor mu?', async () => {
